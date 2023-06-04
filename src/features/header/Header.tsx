@@ -4,7 +4,7 @@ import {Button} from "@mui/material";
 import IT from 'imge/it.png'
 import {useAppDispatch, useAppSelector} from "app";
 import {authThunks} from "features/auth/auth.slice";
-
+import {NavLink} from 'react-router-dom';
 export const Header = () => {
     const profile = useAppSelector((state) => state.auth.profile);
     console.log(profile)
@@ -19,7 +19,7 @@ export const Header = () => {
             <div className={s.header_wrapper}>
                 <div className={s.it}><img src={IT}/></div>
                 <div className={s.header_button}></div>
-                <div className={s.header_span}>Sign in</div>
+                <NavLink to='/login'>    <div className={s.header_span}>Sign in</div></NavLink>
 
             </div>
         </header>
