@@ -9,7 +9,7 @@ const AvatarUser = () => {
     const profile = useAppSelector((state)=> state.auth.profile)
     const changeNametitle = useCallback((title:string)=> {
         
-    },[profile])
+    },[])
     return (
         <div className={s.container}>
             <div className={s.form_wrapper}>
