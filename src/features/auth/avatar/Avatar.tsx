@@ -24,7 +24,7 @@ const AvatarUser = () => {
                         We’ve sent an Email with inctructions to example@mail.com{" "}
                     </div>
                     <div className={s.form_button}>
-                        <Button sx={{width: "100%", borderRadius: 5}} variant="contained">
+                        <Button sx={{width: "100%", borderRadius: 5, backgroundColor: 'white'}} variant="contained">
                             Back to Login
                         </Button>
                     </div>
