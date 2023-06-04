@@ -4,6 +4,7 @@ import Button from "@mui/material/Button";
 import {Avatar} from "@mui/material";
 import {useAppSelector} from 'app/hooks'
 import InputText from "common/utils/inputText";
+import {EditableSpan} from 'common/utils/editSpan'
 const AvatarUser = () => {
     const profile = useAppSelector((state)=> state.auth.profile)
     return (
