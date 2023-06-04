@@ -4,7 +4,10 @@ import { ArgLoginType, ArgRegisterType, authApi, ProfileType } from "features/au
 // {thunkTryCatch} from "common/utils/thunk-try-catch";
 import {appActions} from "app/app.slice";
 import {createAppAsyncThunk, thunkTryCatch } from 'common/utils'
-
+type ParamsTypePut = {
+  name?: string;
+  avatar?: string;
+};
 const slice = createSlice({
   name: "auth",
   initialState: {
@@ -46,6 +49,12 @@ const register = createAppAsyncThunk<void, ArgRegisterType>("auth/register", asy
     console.log("register", res);
   });
 });
+const MePutUser=createAppAsyncThunk<{profile:ProfileType},{arg:ParamsTypePut}>('auth/updated', async(arg:ParamsTypePut, thunkAPI:any)=>{
+return thunkTryCatch(thunkAPI, async () => {
+const res = await authApi.authPut(arg)
+return {profile: res.data}
+})
+} 
 
 
 export const authReducer = slice.reducer;
