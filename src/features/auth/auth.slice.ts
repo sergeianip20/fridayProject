@@ -49,7 +49,7 @@ const register = createAppAsyncThunk<void, ArgRegisterType>("auth/register", asy
     console.log("register", res);
   });
 });
-const MePutUser=createAppAsyncThunk<{profile:ProfileType},{arg:ParamsTypePut}>('auth/updated', async(arg:ParamsTypePut, thunkAPI:any)=>{
+const MePutUser=createAppAsyncThunk<{profile:ProfileType},ParamsTypePut>('auth/updated', async(arg:ParamsTypePut, thunkAPI:any)=>{
 return thunkTryCatch(thunkAPI, async () => {
 const res = await authApi.authPut(arg)
 return {profile: res.data}
