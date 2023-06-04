@@ -1,0 +1,73 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 800px;
+}
+
+.login_wrapper {
+    width: 413px;
+    height: 552px;
+    background: #FFFFFF;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1), -1px -1px 2px rgba(0, 0, 0, 0.1);
+    border-radius: 2px;
+   position: relative;
+
+}
+
+.login_label {
+    position: absolute;
+     top:35px;
+    left:162px;
+    font-size: 26px;
+}
+
+.login_textField {
+
+
+}
+.login_name {
+    position: absolute;
+    top: 126px;
+    left: 15px;
+    width: 96%;
+}
+.login_password {
+    position: absolute;
+    top: 227px;
+    left: 15px;
+    width: 96%;
+}
+.login_forgot {
+    position: absolute;
+    top: 298px;
+    right: 38px;
+}
+.login_checbox {
+    position: absolute;
+    top: 280px;
+    left: 2px;
+}
+.login_button {
+    position: absolute;
+    top: 384px;
+    left: 0px;
+    width: 100%;
+}
+.login_account {
+    position: absolute;
+    top:451px;
+    left:121px;
+}
+.login_end{
+    position: absolute;
+    top:486px;
+    left:174px;
+}
+.login_Confirmpassword {
+    position: absolute;
+    top: 327px;
+    left: 15px;
+    width: 96%;
+}
