@@ -15,7 +15,7 @@ const AvatarUser = () => {
 
                     </div>
                     <div className={s.form_info}>
-                        {profile.name}
+                     
                         We’ve sent an Email with inctructions to example@mail.com{" "}
                     </div>
                     <div className={s.form_button}>
