@@ -19,7 +19,7 @@ export const Header = () => {
             <div className={s.header_wrapper}>
                 <div className={s.it}><img src={IT}/></div>
                 <div className={s.header_button}></div>
-                    <div className={s.header_span}>Sign in</div>
+                <div className={s.header_span}><NavLink to='/login'  >Sign in</NavLink></div>
 
             </div>
         </header>
