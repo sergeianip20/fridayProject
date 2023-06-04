@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useCallback} from 'react';
 import s from "features/auth/avatar/styles.module.css";
 import Button from "@mui/material/Button";
 import {Avatar} from "@mui/material";
@@ -7,6 +7,9 @@ import InputText from "common/utils/inputText";
 import {EditableSpan} from 'common/utils/editSpan'
 const AvatarUser = () => {
     const profile = useAppSelector((state)=> state.auth.profile)
+    const changeNametitle = useCallback((title:string)=> {
+        
+    },[profile])
     return (
         <div className={s.container}>
             <div className={s.form_wrapper}>
