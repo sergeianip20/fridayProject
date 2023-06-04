@@ -7,9 +7,9 @@ import InputText from "common/utils/inputText";
 import {EditableSpan} from 'common/utils/editSpan'
 const AvatarUser = () => {
     const profile = useAppSelector((state)=> state.auth.profile)
-    const changeNametitle = useCallback((title:string)=> {
+    const changeNametitle = (title:string)=> {
         
-    },[])
+    }
     return (
         <div className={s.container}>
             <div className={s.form_wrapper}>
