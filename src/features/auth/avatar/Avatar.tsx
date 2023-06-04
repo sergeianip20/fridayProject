@@ -12,7 +12,7 @@ const AvatarUser = () => {
                     <div className={s.form_label}>PERSONAL INFORMATION</div>
                     <div className={s.form_icons}>
                         <Avatar  sx={{width: 108, height:108}} />
-
+                        {profile ? <div>{profile.name} </div>:<div> </div>  }
                     </div>
                     <div className={s.form_info}>
                      
