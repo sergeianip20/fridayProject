@@ -9,8 +9,9 @@ export const authApi = {
   },
   authMe:()=> {
     return instance.post<ProfileType>('auth/me')
-},authput:()=> {
-
+},
+authPut:(arg:mePutEdit)=> {
+return instance.put("auth/me", { name: arg.name, avatar: arg.avatar });
   }
 
 
@@ -43,3 +44,7 @@ export type ProfileType = {
   token: string;
   tokenDeathTime: number;
 }
+export type mePutEdit = {
+  name?: string;
+  avatar?: string;
+};
