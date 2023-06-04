@@ -20,7 +20,7 @@ const AvatarUser = () => {
                         {profile ? <div>{profile.name} </div>:<div> </div>  }
                     </div>
                     <div className={s.form_info}>
-                     
+                     <EditableSpan  value={profile.name || 'name'} onChange={changeNametitle} />
                         We’ve sent an Email with inctructions to example@mail.com{" "}
                     </div>
                     <div className={s.form_button}>
