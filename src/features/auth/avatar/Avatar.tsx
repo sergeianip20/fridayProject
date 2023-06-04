@@ -3,6 +3,7 @@ import s from "features/auth/avatar/styles.module.css";
 import Button from "@mui/material/Button";
 import {Avatar} from "@mui/material";
 import {useAppSelector} from 'app/hooks'
+import InputText from "common/utils/inputText";
 const AvatarUser = () => {
     const profile = useAppSelector((state)=> state.auth.profile)
     return (
