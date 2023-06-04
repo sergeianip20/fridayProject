@@ -4,6 +4,7 @@ import Button from "@mui/material/Button";
 import {Avatar} from "@mui/material";
 import {useAppSelector} from 'app/hooks'
 const AvatarUser = () => {
+    const profile = useAppSelector((state)=> state.auth.profile)
     return (
         <div className={s.container}>
             <div className={s.form_wrapper}>
@@ -14,7 +15,7 @@ const AvatarUser = () => {
 
                     </div>
                     <div className={s.form_info}>
-
+                        {profile.name}
                         We’ve sent an Email with inctructions to example@mail.com{" "}
                     </div>
                     <div className={s.form_button}>
