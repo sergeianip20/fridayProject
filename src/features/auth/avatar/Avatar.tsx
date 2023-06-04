@@ -1,5 +1,5 @@
 import React from 'react';
-import s from "features/auth/checkEmail/styles.module.css";
+import s from "features/auth/avatar/styles.module.css";
 import Button from "@mui/material/Button";
 import {Avatar} from "@mui/material";
 const AvatarUser = () => {
