@@ -8,7 +8,7 @@ import {Button} from "@mui/material";
 import {toast} from "react-toastify";
 import {object, string} from "yup";
 import {useNavigate} from "react-router-dom";
-
+import {paths} from 'common/constans/Router'
 interface IFormValues {
     email: string;
     password: string;
@@ -41,32 +41,45 @@ export const Register = () => {
         });
 
     return (
-        <div className={s.container}>
-            <div className={s.login_wrapper}>
-                <div className={s.login_label}> Sign up</div>
-                <form onSubmit={handleSubmit(onSubmit)}>
-                <div className={s.login_name}>
+        <Box>
+            
+                Sign up
+                <Form 
+                    
+link={{ to: paths.LOGIN, text: 'Sign In' }}
+
+                description={'Already have an account?'}
+
+                title={'Sign Up'}
+
+                btnName={'Sign Up'}
+
+                onClick={() => {}}
+
+                onSubmit={handleSubmit(onSubmit)}
+                    >
+                
                     <InputText
                         inputWidth={'98%'}
                         label={'email'}
                         password={false}
                         register={register}/>
-                </div>
-                <div className={s.login_password}>
+                
+               
                     <InputText
                         label={'password'}
                         password={true}
                         inputWidth={'98%'}
                         register={register}/>
-                </div>
+                
 
-                <div className={s.login_button}><Button  type='submit' sx={{width: '98%', borderRadius: 30}}
-                                                        variant="contained"> Sign
-                    up</Button></div>
+                
+                                                       
+                    
                 <div className={s.login_account}> Don't have an account?</div>
                 <div className={s.login_end}> Sign in</div>
-                </form>
-            </div>
-        </div>
+                </Form>
+            
+        </Box>
     );
 };
