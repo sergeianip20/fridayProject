@@ -76,8 +76,8 @@ link={{ to: paths.LOGIN, text: 'Sign In' }}
                 
                                                        
                     
-                <div className={s.login_account}> Don't have an account?</div>
-                <div className={s.login_end}> Sign in</div>
+                
+                
                 </Form>
             
         </Box>
