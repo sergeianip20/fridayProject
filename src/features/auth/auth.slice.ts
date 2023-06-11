@@ -55,7 +55,7 @@ const res = await authApi.authPut(arg)
 return {profile: res.data}
 })
 }) 
-const forgotPassword = createAppAsyncThunk<{redirectPath:RedirectPathType; checkEmailMessage:string} & InfoMessageType, SetNewPassBodyType>("auth/register", async (data: ForgotPassBodyType, thunkAPI:any) => {
+const forgotPassword = createAppAsyncThunk<{redirectPath:RedirectPathType; checkEmailMessage:string} & InfoMessageType, ForgotPassBodyType>("auth/forgotPassword", async (data: ForgotPassBodyType, thunkAPI:any) => {
   return thunkTryCatch(thunkAPI, async () => {
     const res = await authApi.forgotPassword(data);
     return { redirectPath: '/auth/check-email',
@@ -64,7 +64,7 @@ const forgotPassword = createAppAsyncThunk<{redirectPath:RedirectPathType; check
            }
   });
 });
-const setNewPassword = createAppAsyncThunk<{info:string,redirectPath:RedirectPathType },ParamsTypePut>('auth/updated', async (arg:ParamsTypePut, thunkAPI:any) => {
+const setNewPassword = createAppAsyncThunk<{info:string,redirectPath:RedirectPathType },SetNewPassBodyType>('auth/setNewPassword', async (data:SetNewPassBodyType, thunkAPI:any) => {
 return thunkTryCatch(thunkAPI, async () => {
 const res = await authApi.authPut(arg)
 return {profile: res.data}
