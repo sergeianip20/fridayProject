@@ -116,37 +116,29 @@ const slice = createSlice({
 
 })
 
-const getCards = createAppAsyncThunk<{ cards: GetCardsResponseType }>(
+const getCards = createAppAsyncThunk<{ cards: GetCardsResponseType }, string>(
 
     'cards/getCards',
 
-    async (id, { rejectWithValue, getState }) => {
+    async (id:string, thunkAPI:any) => {
 
         const params = {
 
-            ...getState().cards.params,
+            ...thunkAPI.getState().cards.params,
 
-            cardsPack_id: getState().cards.selectedCardsPackId,
+            cardsPack_id: thunkAPI.getState().cards.selectedCardsPackId,
 
         }
 
-        try {
+      return thunkTryCatch(thunkAPI, async () => {
 
             const res = await cardsApi.getCards(params)
 
             return { cards: res.data }
 
-        } catch (e) {
+      })
 
-            const error = thunkErrorHandler(e)
-
-            return rejectWithValue(error)
-
-        }
-
-    }
-
-)
+    })
 
 const createCard = createAppAsyncThunk<
 
