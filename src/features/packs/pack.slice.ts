@@ -146,9 +146,9 @@ const createCard = createAppAsyncThunk<
 
     CreateCardRequestType
 
->('cards/createCard', async (data, { rejectWithValue, dispatch }) => {
+>('cards/createCard', async (data, thunkAPI) => {
 
-    try {
+   return thunkTryCatch(thunkAPI, async () => {
 
         const res = await cardsApi.createCard(data)
 
@@ -168,13 +168,7 @@ const createCard = createAppAsyncThunk<
 
         }
 
-    } catch (e) {
-
-        const error = thunkErrorHandler(e)
-
-        return rejectWithValue(error)
-
-    }
+   })
 
 })
 
@@ -184,9 +178,9 @@ const updateCard = createAppAsyncThunk<
 
     UpdateCardRequestType
 
->('cards/updateCard', async (data, { rejectWithValue, dispatch }) => {
+>('cards/updateCard', async (data, thunkAPI) => {
 
-    try {
+   return thunkTryCatch(thunkAPI, async () => {
 
         const res = await cardsApi.updateCard(data)
 
@@ -206,13 +200,7 @@ const updateCard = createAppAsyncThunk<
 
         }
 
-    } catch (e) {
-
-        const error = thunkErrorHandler(e)
-
-        return rejectWithValue(error)
-
-    }
+   })
 
 })
 
@@ -222,9 +210,9 @@ const removeCard = createAppAsyncThunk<
 
     string
 
->('cards/removeCard', async (id, { rejectWithValue, dispatch }) => {
+>('cards/removeCard', async (id, thunkAPI) => {
 
-    try {
+  return thunkTryCatch(thunkAPI, async () => {
 
         const res = await cardsApi.removeCard(id)
 
@@ -244,13 +232,7 @@ const removeCard = createAppAsyncThunk<
 
         }
 
-    } catch (e) {
-
-        const error = thunkErrorHandler(e)
-
-        return rejectWithValue(error)
-
-    }
+  })
 
 })
 
