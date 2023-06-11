@@ -12,7 +12,7 @@ import {Button, Checkbox,} from "@mui/material";
 import {yupResolver} from '@hookform/resolvers/yup'
 import InputText from "common/utils/inputText";
 import FormControlLabel from '@mui/material/FormControlLabel'
-
+import {AppLink} from 'common/component/link/AppLink'
 
 interface IFormValues {
     email: string;
