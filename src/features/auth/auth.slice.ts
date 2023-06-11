@@ -52,7 +52,7 @@ const register = createAppAsyncThunk<void, ArgRegisterType>("auth/register", asy
 const mePutUser = createAppAsyncThunk<{profile:ProfileType},ParamsTypePut>('auth/updated', async (arg:ParamsTypePut, thunkAPI:any) => {
 return thunkTryCatch(thunkAPI, async () => {
 const res = await authApi.authPut(arg)
-return {profile: res.data}
+return {profile: res.data.updatedUser}
 })
 }) 
 const forgotPassword = createAppAsyncThunk<{redirectPath:RedirectPathType; checkEmailMessage:string} & InfoMessageType, ForgotPassBodyType>("auth/forgotPassword", async (data: ForgotPassBodyType, thunkAPI:any) => {
@@ -66,12 +66,12 @@ const forgotPassword = createAppAsyncThunk<{redirectPath:RedirectPathType; check
 });
 const setNewPassword = createAppAsyncThunk<{info:string,redirectPath:RedirectPathType },SetNewPassBodyType>('auth/setNewPassword', async (data:SetNewPassBodyType, thunkAPI:any) => {
 return thunkTryCatch(thunkAPI, async () => {
-const res = await authApi.authPut(arg)
-return {profile: res.data}
+const res = await authApi.setNewPassword(data)
+return {error: res.data.error, redirectPath:'/auth/login', info:res.data.info}
 })
 })
 
 
 export const authReducer = slice.reducer;
-export const authThunks = { register, login, me };
+export const authThunks = { register, login, me, setNewPassword, forgotPassword, mePutUser };
 
