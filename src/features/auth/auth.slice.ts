@@ -55,6 +55,15 @@ const res = await authApi.authPut(arg)
 return {profile: res.data}
 })
 }) 
+const forgotPassword = createAppAsyncThunk<{redirectPath:RefirectPathType; checkEmailMessage:string} & InfoMessageType, ForgotPassBodyType>("auth/register", async (data: ForgotPassBodyType, thunkAPI:any) => {
+  return thunkTryCatch(thunkAPI, async () => {
+    const res = await authApi.forgotPassword(data);
+    return { redirectPath: '/auth/check-email',
+           checkEmailMessage: data.email,
+            info: res.data.info
+           }
+  });
+});
 
 
 export const authReducer = slice.reducer;
