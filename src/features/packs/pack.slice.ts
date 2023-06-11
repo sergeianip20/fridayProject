@@ -14,7 +14,7 @@ import {
 
 } from 'features/cards/cards.api'
 
-import { thunkErrorHandler, clearNotifyStateAction, createAppAsyncThunk } from 'common/utils'
+import { thunkErrorHandler, clearNotifyStateAction, createAppAsyncThunk,  thunkTryCatch  } from 'common/utils'
 
 const initialState = {
 
