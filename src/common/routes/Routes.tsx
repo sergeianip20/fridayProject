@@ -1,6 +1,6 @@
 import {paths} from 'common/constans/Paths'
 import {App} from 'app/App.tsx'
-
+import {PageNotFound} from 'common/utils/PageNotFound/PageNotFound'
 export const router = createHashRouter([
 
     {
