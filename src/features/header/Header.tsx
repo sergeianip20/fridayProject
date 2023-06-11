@@ -9,7 +9,7 @@ import Toolbar from '@mui/material/Toolbar'
 import Container from '@mui/material/Container'
 import {useAppDispatch, useAppSelector} from "app";
 import {authThunks} from "features/auth/auth.slice";
-import {NavLink} from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom'
 export const Header = () => {
     const profile = useAppSelector((state) => state.auth.profile);
     console.log(profile)
