@@ -73,10 +73,17 @@ link={{ to: paths.REGISTER, text: 'Sign Up' }}
                                 Password={true}
                                    inputWidth={'98%'}
                                    register={register}/>
-                    
+                    <FormControlLabel 
+                        sx={{ alignSelf: 'self-start', marginTop: '20px' }}
+
+                    control={<Checkbox {...register('rememberMe')} />}
+
+                    label='Remember me'
+                        
+                        />
                     Forgot password?
                     
-                                                     
+                                                 
 
                     <div className={s.login_account}> Don't have an account?</div>
                     <div className={s.login_end}> Sign up</div>
