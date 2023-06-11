@@ -1,3 +1,6 @@
+import {paths} from 'common/constans/Paths'
+
+
 export const router = createHashRouter([
 
     {
