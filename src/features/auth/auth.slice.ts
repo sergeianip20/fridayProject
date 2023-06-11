@@ -26,7 +26,25 @@ const slice = createSlice({
       }).addCase(me.fulfilled, (state, action)=> {
           state.profile = action.payload.profile
 
-    })
+    }).addCase(forgotPassword.fulfilled, (state, action) => {
+
+                state.checkEmailMessage = action.payload.checkEmailMessage
+
+                state.redirectPath = action.payload.redirectPath
+
+            })
+
+            .addCase(setNewPassword.fulfilled, (state, action) => {
+
+                state.redirectPath = action.payload.redirectPath
+
+            })
+
+            .addCase(updateProfile.fulfilled, (state, action) => {
+
+                state.profile = action.payload.profile
+
+            })
   }
 });
 
