@@ -3,7 +3,7 @@ import s from './styles.module.css'
 import {Button} from "@mui/material";
 import logo from 'imge/logo.svg'
 import AppBar from '@mui/material/AppBar'
-
+import {HeaderProfile} from 'features/header/HeaderProfile'
 import Toolbar from '@mui/material/Toolbar'
 
 import Container from '@mui/material/Container'
