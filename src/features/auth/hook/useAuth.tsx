@@ -143,21 +143,21 @@ export const useAuth = () => {
 
         logout,
 
-        updateUserName,
+      
 
-        forgotPassword,
+       
 
-        setNewPassword,
+       
 
-        profile,
+       
 
-        isUserAuth,
+       
 
-        redirectPath,
+       
 
-        emailAddress,
+       
 
-        authorizedUserId,
+        
 
     }
 
