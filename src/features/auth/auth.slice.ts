@@ -11,7 +11,9 @@ type ParamsTypePut = {
 const slice = createSlice({
   name: "auth",
   initialState: {
-    profile: null as ProfileType | null
+    profile: null as ProfileType | null,
+    redirectPath: '/' as RedirectPathType,
+    checkEmailMessage: '' as string,
   },
   reducers: {
 
