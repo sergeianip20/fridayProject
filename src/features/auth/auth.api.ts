@@ -12,7 +12,34 @@ export const authApi = {
 },
 authPut:(arg:mePutEdit)=> {
 return instance.put("auth/me", { name: arg.name, avatar: arg.avatar });
-  }
+  },
+  forgotPassword: (data: ForgotPassBodyType) => {
+
+        return axios.post<AuthResponseType>(
+
+            'https://neko-back.herokuapp.com/2.0/auth/forgot',
+
+            data,
+
+            { withCredentials: true }
+
+        )
+
+    },
+
+    setNewPassword: (data: SetNewPassBodyType) => {
+
+        return axios.post<AuthResponseType>(
+
+            'https://neko-back.herokuapp.com/2.0/auth/set-new-password',
+
+            data,
+
+            { withCredentials: true }
+
+        )
+
+    },
 
 
 };
@@ -48,3 +75,28 @@ export type mePutEdit = {
   name?: string;
   avatar?: string;
 };
+export type ForgotPassBodyType = {
+
+    email: string
+
+    from: string
+
+    message: string
+
+}
+export type AuthResponseType = {
+
+    info: string
+
+    error?: string
+
+}
+export type SetNewPassBodyType = {
+
+    password: string
+
+    resetPasswordToken: string //token from url
+
+}
+
+
