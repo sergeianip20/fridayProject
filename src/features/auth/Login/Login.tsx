@@ -85,8 +85,12 @@ link={{ to: paths.REGISTER, text: 'Sign Up' }}
                     
                                                  
 
-                    <div className={s.login_account}> Don't have an account?</div>
-                    <div className={s.login_end}> Sign up</div>
+                    <AppLink justifyContent={'flex-end'} colorText={'black'} fontWeight={500}>
+
+                    <Link to={paths.FORGOT_PASSWORD}>Forgot Password?</Link>
+
+                </AppLink>
+                    
 
                 </Form>
             
