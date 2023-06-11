@@ -11,6 +11,8 @@ import {object, string,} from 'yup';
 import {Button, Checkbox,} from "@mui/material";
 import {yupResolver} from '@hookform/resolvers/yup'
 import InputText from "common/utils/inputText";
+import FormControlLabel from '@mui/material/FormControlLabel'
+
 
 interface IFormValues {
     email: string;
@@ -23,7 +25,7 @@ export const Login = () => {
         email: string().required().email(),
         password: string().required().min(3).max(25)
     })
-    const {register, watch, handleSubmit} = useForm<IFormValues>({
+    const {errors, register, watch, handleSubmit} = useForm<IFormValues>({
         defaultValues: {rememberMe: true},
         resolver: yupResolver(validateShema)
     });
@@ -43,35 +45,44 @@ export const Login = () => {
             toast.error(err.e.response.data.error);
         });
     return (
-        <div className={s.container}>
+        <Box>
 
-            <div className={s.login_wrapper}>
-                <form onSubmit={handleSubmit(onSubmit)}>
-                    <div className={s.login_label}> Sign in</div>
+            
+                <Form
+link={{ to: paths.REGISTER, text: 'Sign Up' }}
 
-                    <div className={s.login_name}>
+                description={"Don't have an account?"}
+
+                title={'Sign In'}
+
+                btnName={'Sign In'}
+ onSubmit={handleSubmit(onSubmit)}>
+                    
+
+                    
                         <InputText inputWidth={'98%'}
                                    label={'email'}
                                    password={false}
-                                   register={register}/>
+                                   register={register}
+                            error={errors}
+                            />
 
-                    </div>
-                    <div className={s.login_password}>
+                    
+                   
                         <InputText label={'password'}
-                                   password={true}
+                                Password={true}
                                    inputWidth={'98%'}
-                                   register={register}/></div>
-                    <div className={s.login_checbox}><Checkbox/> Remember me</div>
-                    <div className={s.login_forgot}> Forgot password?</div>
-                    <div className={s.login_button}><Button type='submit' sx={{width: '98%', borderRadius: 30}}
-                                                            variant="contained"> Sign
-                        in</Button></div>
+                                   register={register}/>
+                    
+                    Forgot password?
+                    
+                                                     
 
                     <div className={s.login_account}> Don't have an account?</div>
                     <div className={s.login_end}> Sign up</div>
 
-                </form>
-            </div>
-        </div>
+                </Form>
+            
+        </Box>
     );
 };
