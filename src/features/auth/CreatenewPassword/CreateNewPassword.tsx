@@ -17,7 +17,7 @@ export const CreateNewPassword = () => {
     const validateShema = object({
         password: string().required().min(3).max(25)
     })
-    const {register, watch, handleSubmit} = useForm<PasswordFormType>({
+    const {register, watch, handleSubmit, errors} = useForm<PasswordFormType>({
         resolver:yupResolver(validateShema)
     })
     const onSubmit: SubmitHandler<PasswordFormType> = data =>dispatch(authThunks.newPassword(data.password))
