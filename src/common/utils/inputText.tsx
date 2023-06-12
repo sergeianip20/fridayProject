@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {FC} from 'react';
 import {FormControl, Input, InputAdornment, InputLabel, TextField} from "@mui/material";
 import {Visibility, VisibilityOff} from "@mui/icons-material";
 import IconButton from "@mui/material/IconButton";
@@ -14,6 +14,7 @@ type InputTextType = {
     label: string
     register: any
     inputWidth: string
+    errors: any
 }
 type Inputs = {
     example: string,
@@ -24,7 +25,7 @@ type InputProps = {
     register: UseFormRegister<IFormValues>;
     required: boolean;
 };
-const InputText = React.memo((props: InputTextType) => {
+const InputText:FC<InputTextType> = React.memo(({errors, label, register, password,inputWidth }) => {
     const [showPassword, setShowPassword] = React.useState(false);
     const {register, handleSubmit, watch, formState: {errors}} = useForm();
     const onSubmit: SubmitHandler<Inputs> = data => console.log(data);
@@ -39,12 +40,12 @@ const InputText = React.memo((props: InputTextType) => {
 
             {props.password ?
 
-                <FormControl sx={{width: props.inputWidth}} variant="standard">
-                    <InputLabel htmlFor="standard-adornment-password">{props.label}</InputLabel>
+                <FormControl sx={{width: inputWidth}} variant="standard">
+                    <InputLabel htmlFor="standard-adornment-password">{label}</InputLabel>
                     <Input
                         fullWidth={true}
 
-                        {...props.register(props.label)}
+                        {...register(props.label)}
 
                         id="standard-adornment-password"
                         type={showPassword ? 'text' : 'password'}
@@ -62,9 +63,9 @@ const InputText = React.memo((props: InputTextType) => {
                     />
                 </FormControl> :
                 <FormControl sx={{width: '100%'}} variant="standard">
-                    <InputLabel htmlFor="standard-adornment-password">{props.label}</InputLabel>
-                    <Input
-                        {...props.register(props.label)} sx={{width: props.inputWidth}} type={'text'}/>
+                    <InputLabel htmlFor="standard-adornment-password">{label}</InputLabel>
+                    <Input error={!!errors[name]}
+                        {...register(props.label)} sx={{width: inputWidth}} type={'text'}/>
                 </FormControl>
             }
         </div>
