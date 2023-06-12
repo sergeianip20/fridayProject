@@ -24,27 +24,38 @@ export const CreateNewPassword = () => {
     const dispatch = useAppDispatch();
     const navigate = useNavigate()
     return (
-        <div className={s.container}>
-            <div className={s.form_wrapper}>
-                <div className={s.form_position}>
-                    <form onSubmit={handleSubmit(onSubmit)}>
-                    <div className={s.form_label}>Create new Password</div>
-                    <div className={s.form_input}>
-                        <InputText password={true} label={'password'} register={register} inputWidth={'98%'} />
+        <div>
 
-                    </div>
-                    <div className={s.form_info}>
-                        {" "}
-                        Create new password and we will send you further instructions to email{" "}
-                    </div>
-                    <div className={s.form_button}>
-                        <Button sx={{width: "100%", borderRadius: 5}} variant="contained">
-                           Create new Password
-                        </Button>
-                    </div>
-                    </form>
-                </div>
-            </div>
+            <Form
+
+                title={'Create new password'}
+
+                btnName={'Create new password'}
+
+                onClick={handleSubmit(onSubmit)}
+
+            >
+
+                <PasswordInput
+
+                    label={'New password'}
+
+                    name={'password'}
+
+                    errors={errors}
+
+                    register={register}
+
+                />
+
+                <InfoMessage
+
+                    text={'Create new password and we will send you further instructions to email'}
+
+                />
+
+            </Form>
+
         </div>
     );
 };
